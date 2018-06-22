@@ -1,3 +1,8 @@
-<p>
-  home-page works!
-</p>
+<div class="page-wrapper">
+  <p>
+    Below are the 8 planets of our Solar system starting with Mercury, the planet closest to the Sun, all the way to Neptune.
+  </p>
+  <ul *ngIf='planets'>
+     <a *ngFor='let p of planets' routerLink="details/{{ p.id }}"><li>{{ p.name }}</li></a>
+  </ul>
+</div>

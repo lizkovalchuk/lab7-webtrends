@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common'
+import { Lab7Service } from '../lab7.service';
+import { Planet } from '../planet'
 
 @Component({
   selector: 'app-details',
@@ -8,6 +9,9 @@ import { Location } from '@angular/common'
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
+
+  // Planets : Planet[] = [];
+  Planet : Planet;
 
   num: number;
 
@@ -18,11 +22,22 @@ export class DetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private location: Location
+   // private location: Location,
+    private lab7Service: Lab7Service
   ) { }
 
   ngOnInit() {
-    this.getNum();
+    // this.getNum();
+    const id = +this.route.snapshot.paramMap.get('id');
+    console.log(id)
+
+    //call the service 
+    this.lab7Service.getPlanet(id).subscribe(data => {
+      console.log(data)
+        this.Planet = data
+      }
+    );
+    
   }
 
 }

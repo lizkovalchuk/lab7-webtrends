@@ -7,6 +7,10 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { DetailsComponent } from './details/details.component';
+// import { HttpClient } from 'selenium-webdriver/http';
+import { HttpClientModule } from '@angular/common/http';
+import { MessageComponent } from './message/message.component'
+
 
 @NgModule({
   declarations: [
@@ -14,11 +18,13 @@ import { DetailsComponent } from './details/details.component';
     HomePageComponent,
     AboutPageComponent,
     ContactPageComponent,
-    DetailsComponent
+    DetailsComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

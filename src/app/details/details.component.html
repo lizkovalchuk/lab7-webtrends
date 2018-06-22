@@ -1,3 +1,8 @@
-<p>
-  details works!
-</p>
+<html>
+    <h2 *ngIf="Planet">
+        {{ Planet.name}}
+    </h2>
+    <p *ngIf="Planet">
+        {{ Planet.description }}
+    </p>
+</html>
